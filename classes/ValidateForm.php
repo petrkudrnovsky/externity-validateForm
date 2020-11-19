@@ -34,7 +34,9 @@ class ValidateForm {
 
     private function birthDateHandler($birth_number, $birthday) {
         if($birth_number === "") {
-            if($birthday === "")
+            if($birthday === "") {
+                //yadda yadda yadda
+            }
         }
     }
 

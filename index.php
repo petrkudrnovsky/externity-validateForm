@@ -29,7 +29,7 @@
                     echo("yay");
                 }
                 else {
-                    echo()
+                    echo("nah");
                 }
             }
         ?>
