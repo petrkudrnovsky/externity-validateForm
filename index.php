@@ -25,7 +25,12 @@
 
         <?php
             if($_POST) {
-
+                if($_POST["birthday"]) {
+                    echo("yay");
+                }
+                else {
+                    echo()
+                }
             }
         ?>
     </body>
