@@ -6,7 +6,9 @@ class ValidateForm {
     private $lastname;
     private $birth_number;
     private $birthday;
-    public $zprava = "Nesprávně vyplněný formulář: <br> Chyby: <br>";
+    public $zprava = "<h2>Nesprávně vyplněný formulář:</h2> <br> Chyby: <br>";
+    private $birthNumberWarning;
+    private $birthdayWarning;
 
     public function __construct($surname, $lastname, $birth_number, $birthday){
         $this->surname = $surname;
@@ -34,10 +36,11 @@ class ValidateForm {
 
     private function validateBirthNumber() {
         if($this->birth_number) {
-            if(preg_match("/^(/d{6}\//d{4})$/", $this->birth_number)) {
-                return true;
+            if(preg_match("/^(\d{6}\/\d{4})$/", $this->birth_number)) {
+                return $this->birth_number;
             }
             else {
+                $this->birthNumberWarning = "Špatně zadané rodné číslo.";
                 return false;
             }
         }
@@ -48,31 +51,30 @@ class ValidateForm {
         if($this->birthday) {
             $birthTimestamp = strtotime($this->birthday);
             $currentTimestamp = time();
-            if ($birthTimestamp > $currentTimestamp) {
-                return false;
+            if ($birthTimestamp < $currentTimestamp) {
+                return $this->birthday;
             } else {
-                return true;
+                $this->birthdayWarning = "Špatně zadané datum narození, je v budoucnosti";
+                return false;
             }
         }
         return false;
     }
 
-    private function birthDateHandler() {
+    /*private function birthDateHandler() {
         if($this->validateBirthNumber()) {
             return "birth_number";
         }
-        else if ($this->validateBirthday()) {
+        if ($this->validateBirthday()) {
             return "birthday";
         }
-        else {
-            return false;
-        }
-    }
+    }*/
 
     private function checkAll() {
         if ($this->validateSurnameInput() && $this->validateLastnameInput() && ($this->validateBirthday() || $this->validateBirthNumber())) {
             return true;
         }
+        return false;
     }
 
     private function wrongForm() {
@@ -84,31 +86,40 @@ class ValidateForm {
             $this->zprava = $this->zprava . "Špatně zadané příjmení.<br>";
         }
 
-        if (!$this->validateBirthNumber()) {
-            $this->zprava = $this->zprava . "rfe";
-        }
-
-        if(!$this->validateBirthday()) {
-            $this->zprava = $this->zprava . "Zadali jste datum narození v budoucnosti.<br>";
+        if (!($this->validateBirthday() || $this->validateBirthNumber())) {
+            if(!($this->birthNumberWarning && $this->birthdayWarning)) {
+                $this->zprava = $this->zprava . "Není zadáno ani datum narození ani rodné číslo.<br>";
+            }
+            if($this->birthdayWarning) {
+                $this->zprava = $this->zprava . $this->birthdayWarning. "<br>";
+            }
+            if($this->birthNumberWarning) {
+                $this->zprava = $this->zprava . $this->birthNumberWarning. "<br>";
+            }
         }
     }
 
     public function printOutput() {
         if($this->checkAll()) {
             echo("<h2>Odeslaný formulář</h2><br>");
-            echo("Jméno: " . $this->surname);
-            echo("Příjmení: " . $this->lastname);
-            if($this->birthDateHandler() === "birth_number") {
-                echo("Rodné číslo: " . $this->birth_number);
+            echo("Jméno: " . $this->surname . "<br>");
+            echo("Příjmení: " . $this->lastname . "<br>");
+            if($this->validateBirthNumber()) {
+                echo("Rodné číslo: " . $this->validateBirthNumber() . "<br>");
             }
-            if($this->birthDateHandler() === "birthday") {
-                echo("Datum narození: ");
+            else {
+                echo("Rodné číslo: " . $this->birthNumberWarning . "<br>");
+            }
+            if($this->validateBirthday()) {
+                echo("Datum narození: " . $this->validateBirthday() . "<br>");
+            }
+            else {
+                echo("Datum narození: " . $this->birthdayWarning . "<br>");
             }
         }
         else {
             $this->wrongForm();
             echo($this->zprava);
         }
-
     }
 }

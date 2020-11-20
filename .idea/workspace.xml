@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91d86e15-af99-42e3-aaa5-047e31a7ca44" name="Default Changelist" comment="">
+    <list default="true" id="91d86e15-af99-42e3-aaa5-047e31a7ca44" name="Default Changelist" comment="version 1.0 finished, need to handle births">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/ValidateForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/ValidateForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
@@ -24,6 +24,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -39,12 +40,16 @@
       <option name="presentableId" value="Default" />
       <updated>1605800912538</updated>
       <workItem from="1605800913604" duration="6072000" />
-      <workItem from="1605856945754" duration="3341000" />
+      <workItem from="1605856945754" duration="7678000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="version 1.0 finished, need to handle births" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 1.0 finished, need to handle births" />
   </component>
   <component name="WindowStateProjectService">
     <state x="667" y="163" key="#PHP" timestamp="1605801003541">

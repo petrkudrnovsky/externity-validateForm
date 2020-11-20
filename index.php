@@ -1,6 +1,7 @@
 <?php
     declare(strict_types = 1);
     mb_internal_encoding("UTF-8");
+    require_once("classes/ValidateForm.php");
 ?>
 
 <!DOCTYPE html>
@@ -25,13 +26,10 @@
 
         <?php
             if($_POST) {
-                if($_POST["birthday"]) {
-                    echo("yay");
-                    echo($_POST["birthday"]);
-                }
-                else {
-                    echo("nah");
-                }
+                $form = new ValidateForm($_POST["surname"],  $_POST["lastname"], $_POST["birth_number"], $_POST["birthday"]);
+                header("index.php");
+                $form->printOutput();
+                exit();
             }
         ?>
     </body>
