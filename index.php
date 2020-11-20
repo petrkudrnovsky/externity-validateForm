@@ -27,6 +27,7 @@
             if($_POST) {
                 if($_POST["birthday"]) {
                     echo("yay");
+                    echo($_POST["birthday"]);
                 }
                 else {
                     echo("nah");

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91d86e15-af99-42e3-aaa5-047e31a7ca44" name="Default Changelist" comment="" />
+    <list default="true" id="91d86e15-af99-42e3-aaa5-047e31a7ca44" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/ValidateForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/ValidateForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,6 +13,9 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="XAMPP PHP 7.4" />
   <component name="ProjectId" id="1kW0CY1XepKzK57EMG16ak2BfjP" />
@@ -31,7 +38,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605800912538</updated>
-      <workItem from="1605800913604" duration="5980000" />
+      <workItem from="1605800913604" duration="6072000" />
+      <workItem from="1605856945754" duration="3341000" />
     </task>
     <servers />
   </component>
@@ -55,5 +63,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/-1920.8.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1605800920153" />
+    <state x="681" y="261" width="540" height="524" key="StructurePopup" timestamp="1605856973074">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="681" y="261" width="540" height="524" key="StructurePopup/-1920.8.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1605856973074" />
   </component>
 </project>
