@@ -18,7 +18,7 @@ class ValidateForm {
     }
 
     private function validateSurnameInput() {
-        if(preg_match("/^([a-zA-Z]+)$/", $this->surname)) {
+        if(preg_match("/^([a-zA-ZáéěíýóúůžščřďťňÁÉĚÍÝÓÚŮŽŠČŘĎŤŇ]+)$/", $this->surname)) {
             return true;
         }
         else {
@@ -26,7 +26,7 @@ class ValidateForm {
         }
     }
     private function validateLastnameInput() {
-        if(preg_match("/^([a-zA-Z]+)$/", $this->lastname)) {
+        if(preg_match("/^([a-zA-ZáéěíýóúůžščřďťňÁÉĚÍÝÓÚŮŽŠČŘĎŤŇ]+)$/", $this->lastname)) {
             return true;
         }
         else {
@@ -69,6 +69,12 @@ class ValidateForm {
             return "birthday";
         }
     }*/
+    private function leaveInfo() {
+        $isSurname = (isset($_POST["surname"]) ? $_POST["surname"] : "");
+        $isLastname = (isset($_POST["lastname"]) ? $_POST["lastname"] : "");
+        $isBirthNumber = (isset($_POST["birth_number"]) ? $_POST["birth_number"] : "");
+        $isBirthday = (isset($_POST["birthday"]) ? $_POST["birthday"] : "");
+    }
 
     private function checkAll() {
         if ($this->validateSurnameInput() && $this->validateLastnameInput() && ($this->validateBirthday() || $this->validateBirthNumber())) {
@@ -78,6 +84,7 @@ class ValidateForm {
     }
 
     private function wrongForm() {
+        $this->leaveInfo();
         if (!$this->validateSurnameInput()) {
             $this->zprava = $this->zprava . "Špatně zadané jméno.<br>";
         }
@@ -101,6 +108,7 @@ class ValidateForm {
 
     public function printOutput() {
         if($this->checkAll()) {
+
             echo("<h2>Odeslaný formulář</h2><br>");
             echo("Jméno: " . $this->surname . "<br>");
             echo("Příjmení: " . $this->lastname . "<br>");
@@ -121,5 +129,9 @@ class ValidateForm {
             $this->wrongForm();
             echo($this->zprava);
         }
+    }
+
+    public function printForm() {
+
     }
 }
